@@ -31,7 +31,9 @@
                                                 <th>Category Id</th>
 					        <th>Category Name</th>
 					        <th>Category Image</th>
-					        
+					        <th>Edit</th>
+					        <th>Delete</th>
+
 					      </tr>
 					    </thead>
 					    <tbody>
@@ -48,8 +50,11 @@
                          <td><%=rs.getString("Category_id")%></td>
                          <td><%=rs.getString("category_name")%></td>
                         <td><img src='../admin/assets/img/<%=rs.getString("category_image")%>'width="100" height="100"></td>
-                        
-                        
+                       <td><a href="categoryedit.jsp?a=<%=rs.getString("category_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
+                       </td><td> <a onclick="return confirm('Do u want to delete?')" href="categorydelete.jsp?id=<%=rs.getString("category_id")%>">  <button type="button" class="btn btn-dark btn-icon-text" >
+                                                    Delete
+                                                    <i class="mdi mdi-delete"></i>       </a>                   
+                                            </button></td>
                                                
 
                 <!--<button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>-->

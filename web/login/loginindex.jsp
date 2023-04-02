@@ -1,4 +1,4 @@
-<%--<jsp:include page="../guest/header.jsp" />--%>
+<jsp:include page="../guest/header.jsp" />
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,7 +29,7 @@
 
   <div class="d-md-flex half">
     <div class="bg" style="background-image: url('images/login2.jpg');"></div>
-    <div class="contents">
+<div class="contents">
 
       <div class="container">
         <div class="row align-items-center justify-content-center">
@@ -73,4 +73,4 @@
     <script src="js/main.js"></script>
   </body>
 </html>
-<%--<jsp:include page="../guest/footer.jsp" />--%>
+<jsp:include page="../guest/footer.jsp" />
