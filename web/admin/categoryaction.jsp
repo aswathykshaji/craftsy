@@ -123,7 +123,7 @@
          {out.println(e);}
        %>
        <script>
-           alert("File Upload Successfully");
+           alert("Registered Successfully");
            window.location="categoryregister.jsp";
        </script>
 <%

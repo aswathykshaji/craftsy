@@ -37,7 +37,7 @@
         <li class="nav-item">
           <a class="nav-link text-white active bg-gradient-primary" href="./pages/dashboard.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
+              <!--<i class="material-icons opacity-10">dashboard</i>-->
             </div>
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
@@ -45,7 +45,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="categoryregister.jsp">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <!--<i class="material-icons opacity-10">table_view</i>-->
             </div>
             <span class="nav-link-text ms-1" >Add Category</span>
           </a>
@@ -53,7 +53,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="subcategoryregister.jsp">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
+              <!--<i class="material-icons opacity-10">receipt_long</i>-->
             </div>
             <span class="nav-link-text ms-1" >Add Subcategory</span>
           </a>
@@ -61,7 +61,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="locationregister.jsp">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">view_in_ar</i>
+              <!--<i class="material-icons opacity-10">view_in_ar</i>-->
             </div>
             <span class="nav-link-text ms-1" href="">Location</span>
           </a>
@@ -69,15 +69,23 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="categoryview.jsp">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+              <!--<i class="material-icons opacity-10">format_textdirection_r_to_l</i>-->
             </div>
             <span class="nav-link-text ms-1">view category</span>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link text-white " href="viewsubcategory.jsp">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <!--<i class="material-icons opacity-10">format_textdirection_r_to_l</i>-->
+            </div>
+            <span class="nav-link-text ms-1">view subcategory</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white " href="./pages/notifications.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
+              <!--<i class="material-icons opacity-10">notifications</i>-->
             </div>
             <span class="nav-link-text ms-1">Feedback</span>
           </a>
@@ -88,7 +96,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="./pages/profile.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
+              <!--<i class="material-icons opacity-10">person</i>-->
             </div>
             <span class="nav-link-text ms-1">Profile</span>
           </a>
@@ -96,7 +104,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="./pages/sign-in.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">login</i>
+              <!--<i class="material-icons opacity-10">login</i>-->
             </div>
             <span class="nav-link-text ms-1">Sign In</span>
           </a>
@@ -104,7 +112,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="./pages/sign-up.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
+              <!--<i class="material-icons opacity-10">assignment</i>-->
             </div>
             <span class="nav-link-text ms-1">Sign Up</span>
           </a>

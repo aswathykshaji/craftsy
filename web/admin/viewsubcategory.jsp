@@ -22,15 +22,16 @@
 			
 			<div class="row">
 				<div class="col-md-12">
-					<h4 class="text-center mb-4">Category View</h4>
+					<h4 class="text-center mb-4">Subcategory View</h4>
 					<div class="table-wrap">
 						<table class="table">
 					    <thead class="thead-primary">
 					      <tr>
 					        <th>SL. NO</th>	
                                                 <th>Category Id</th>
-					        <th>Category Name</th>
-					        <th>Category Image</th>
+                                                <th>Subcategory Id</th>
+					        <th>Subcategory Name</th>
+					        <th>Subcategory Image</th>
 					        <th>Edit</th>
 					        <th>Delete</th>
 
@@ -41,17 +42,18 @@
                         try {
                             Connection con = JavaClass.getCon();
                             Statement st = con.createStatement();
-                            String Query = "select * from category";
+                            String Query = "select * from subcategory";
                             ResultSet rs = st.executeQuery(Query);
                             while (rs.next()) {
                     %>
                     <tr>
                         <td><%=++slno%></td>
-                         <td><%=rs.getString("category_id")%></td>
-                         <td><%=rs.getString("category_name")%></td>
-                        <td><img src='../admin/assets/img/<%=rs.getString("category_image")%>'width="100" height="100"></td>
-                       <td><a href="editcategory.jsp?a=<%=rs.getString("category_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
-                       </td><td> <a onclick="return confirm('Do u want to delete?')" href="categorydelete.jsp?id=<%=rs.getString("category_id")%>">  <button type="button" class="btn btn-dark btn-icon-text" >
+                         <td><%=rs.getString("Category_id")%></td>
+                         <td><%=rs.getString("subcategory_id")%></td>
+                         <td><%=rs.getString("subcategory_name")%></td>
+                        <td><img src='../admin/assets/img/<%=rs.getString("subcategory_image")%>'width="100" height="100"></td>
+                       <td><a href="subcategoryedit.jsp?a=<%=rs.getString("subcategory_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
+                       </td><td> <a onclick="return confirm('Do u want to delete?')" href="subcategorydelete.jsp?id=<%=rs.getString("subcategory_id")%>">  <button type="button" class="btn btn-dark btn-icon-text" >
                                                     Delete
                                                     <i class="mdi mdi-delete"></i>       </a>                   
                                             </button></td>
