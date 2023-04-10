@@ -50,7 +50,7 @@
                          <td><%=rs.getString("category_id")%></td>
                          <td><%=rs.getString("category_name")%></td>
                         <td><img src='../admin/assets/img/<%=rs.getString("category_image")%>'width="100" height="100"></td>
-                       <td><a href="editcategory.jsp?a=<%=rs.getString("category_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
+                       <td><a href="editcategory.jsp?id=<%=rs.getString("category_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
                        </td><td> <a onclick="return confirm('Do u want to delete?')" href="categorydelete.jsp?id=<%=rs.getString("category_id")%>">  <button type="button" class="btn btn-dark btn-icon-text" >
                                                     Delete
                                                     <i class="mdi mdi-delete"></i>       </a>                   

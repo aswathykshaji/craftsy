@@ -1,14 +1,67 @@
-<% 
-    String username=request.getParameter("username");
-    String password=request.getParameter("password");
-//    out.println("username= "+username);
-//    out.println("password= "+password);
-    if(username.equals("admin")&& password.equals("admin"))
-    {
-        response.sendRedirect("../admin/adminhome.jsp");
-    }
-    else
-    {
-        out.println("invalid username and password");
-    }
-    %>
+ 
+<%@page import="java.sql.*" %>
+<%@page import="craftpackage.JavaClass" %>
+<%
+ try{
+ Connection con=JavaClass.getCon();
+ Statement st=con.createStatement();
+ 
+ String username=request.getParameter("username");
+ String Password=request.getParameter("password");
+ //String role="customer";
+ //String status="notconfirmed";
+ 
+ 
+ 
+String Query="Select * from login WHERE username='"+username+"' and password='"+Password+"'";
+ // out.println(Query);
+ ResultSet rs = st.executeQuery(Query);
+// out.println("...INSERTED..");
+ if(rs.next())
+ {
+ // out.println("he");
+ int login_id=rs.getInt("login_id");
+ session.setAttribute("login_id", login_id);
+// String r="admin";
+ // out.println(loginid);
+ String role=rs.getString("role").replaceAll("\\s", ""); // replaceAll("\\s", "")
+ out.println(role);
+ String status=rs.getString("status");
+// st.executeUpdate("Update tbl_login set status='confirmed' where username='"+username+"'");
+ //out.println("hi");
+// if(role=="admin"){
+ if(role.equals("admin")){
+ out.println("role");
+ 
+ response.sendRedirect("../admin/adminhome.jsp");
+ }
+ else if(role.equals("customer"))
+ 
+ {
+ out.println("role");
+ if(status.equals("notconfirmed"))
+ {
+ out.println("pls wait");
+ }
+ else
+ {
+ 
+ 
+ response.sendRedirect("../guest/guesthome.jsp");
+ 
+ }
+ 
+ }
+ }
+ 
+ else{
+ out.println("invalid username or password");
+ 
+ 
+} 
+ }
+ catch(Exception e){
+     
+ }
+ 
+ %

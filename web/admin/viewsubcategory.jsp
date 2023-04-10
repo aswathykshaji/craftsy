@@ -52,7 +52,7 @@
                          <td><%=rs.getString("subcategory_id")%></td>
                          <td><%=rs.getString("subcategory_name")%></td>
                         <td><img src='../admin/assets/img/<%=rs.getString("subcategory_image")%>'width="100" height="100"></td>
-                       <td><a href="subcategoryedit.jsp?a=<%=rs.getString("subcategory_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
+                       <td><a href="editsubcategory.jsp?id=<%=rs.getString("subcategory_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
                        </td><td> <a onclick="return confirm('Do u want to delete?')" href="subcategorydelete.jsp?id=<%=rs.getString("subcategory_id")%>">  <button type="button" class="btn btn-dark btn-icon-text" >
                                                     Delete
                                                     <i class="mdi mdi-delete"></i>       </a>                   
