@@ -46,8 +46,8 @@
 									<option value="viet nam"></option>-->
 <%
 try{
-     Connection cone=JavaClass.getCon();
-       Statement stmt=cone.createStatement();
+     Connection con=JavaClass.getCon();
+       Statement stmt=con.createStatement();
        String Query="select * from subcategory";
        ResultSet rst=stmt.executeQuery(Query);
        while(rs.next()){

@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<jsp:include page="guestheader.jsp" />
 		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
@@ -807,4 +807,4 @@
 			<!-- /container -->
 		</div>
 		<!-- /NEWSLETTER -->
-<jsp:include page="footer.jsp" />
+<jsp:include page="guestfooter.jsp" />

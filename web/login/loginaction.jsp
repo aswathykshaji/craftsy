@@ -1,4 +1,3 @@
- 
 <%@page import="java.sql.*" %>
 <%@page import="craftpackage.JavaClass" %>
 <%
@@ -38,19 +37,31 @@ String Query="Select * from login WHERE username='"+username+"' and password='"+
  else if(role.equals("customer"))
  
  {
- out.println("role");
- if(status.equals("notconfirmed"))
+// out.println("role");
+ if(status.equals("confirmed"))
  {
- out.println("pls wait");
+  response.sendRedirect("../buyer/buyerhome.jsp");
+
  }
  else
  {
  
- 
- response.sendRedirect("../guest/guesthome.jsp");
+ out.println("please wait");
  
  }
  
+ }
+ else if(role.equals("seller"))
+ {
+//     out.println("role");
+     if(status.equals("confirmed")){
+                  out.println("please wait");
+
+     }
+     else{
+                  response.sendRedirect("../seller/sellerhome.jsp");
+
+     }
  }
  }
  
@@ -64,4 +75,4 @@ String Query="Select * from login WHERE username='"+username+"' and password='"+
      
  }
  
- %
+ %>

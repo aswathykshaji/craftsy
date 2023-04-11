@@ -42,8 +42,8 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> crafsy@email.com</a></li>
+						<li><a href="#"><i class="fa fa-phone"></i> +91-98-76-54-32-10</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> crafsy@gmail.com</a></li>
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
@@ -60,13 +60,13 @@
 					<!-- row -->
 					<div class="row">
 						<!-- LOGO -->
-						<div class="col-md-3">
+<!--						<div class="col-md-3">
 							<div class="header-logo">
 								<a href="#" class="logo">
 									<img src="./img/logo.png" alt="">
 								</a>
 							</div>
-						</div>
+						</div>-->
 						<!-- /LOGO -->
 
 						<!-- SEARCH BAR -->
