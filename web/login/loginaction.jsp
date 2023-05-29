@@ -19,8 +19,8 @@ String Query="Select * from login WHERE username='"+username+"' and password='"+
  if(rs.next())
  {
  // out.println("he");
- int login_id=rs.getInt("login_id");
- session.setAttribute("login_id", login_id);
+ String lid=rs.getString("login_id");
+ session.setAttribute("login_id", lid);
 // String r="admin";
  // out.println(loginid);
  String role=rs.getString("role").replaceAll("\\s", ""); // replaceAll("\\s", "")
@@ -55,11 +55,12 @@ String Query="Select * from login WHERE username='"+username+"' and password='"+
  {
 //     out.println("role");
      if(status.equals("confirmed")){
-                  out.println("please wait");
+                  response.sendRedirect("../seller/sellerhome.jsp");
 
      }
      else{
-                  response.sendRedirect("../seller/sellerhome.jsp");
+                           out.println("please wait");
+
 
      }
  }

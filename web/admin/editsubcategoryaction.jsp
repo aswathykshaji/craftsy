@@ -7,14 +7,21 @@
 try {
 Connection con=JavaClass.getCon();
 Statement st=con.createStatement();
+//String category=request.getParameter("category_name");
+
 String subcategory_name=request.getParameter("subcategory_name");
-//String category_image=request.getParameter("category_image");
+//out.println("category_name");
 String id = request.getParameter("id");
+//out.println(id);
 int num = Integer.parseInt(id);
-String sql1 = "update subcategory set subcategory_name='" + subcategory_name + "' where subcategory_id='"+num+"' ";
+//out.println("hi");
+String sql1 = "update subcategory set subcategory_name='" + subcategory_name +"' where subcategory_id='"+num+"'";
+//out.println("hi");
+//out.println(sql1);
 st.executeUpdate(sql1);
 out.println(sql1);
-response.sendRedirect("subcategoryview.jsp");
+//out.println("hi");
+response.sendRedirect("viewsubcategory.jsp");
 }
 catch (Exception e) {
 e.printStackTrace();

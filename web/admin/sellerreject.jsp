@@ -1,4 +1,5 @@
 
+
 <%@page import="craftpackage.JavaClass"%>
 <%@page import="java.sql.*"%> 
 <%
@@ -8,7 +9,7 @@
         Statement st = con.createStatement();
  String id = request.getParameter("id");
         
-         st.executeUpdate("update login set status='confirmed' where login_id='"+id+"'");
+         st.executeUpdate("update login set status='rejected' where login_id='"+id+"'");
         out.println("Updated Successfully");
  
     } catch (Exception e) {

@@ -58,8 +58,8 @@
                                         <td><%=rs.getString("location_name")%></td>
                                         <td><%=rs.getString("username")%></td>
                                         <td><a href="selleraccept.jsp?id=<%=rs.getString("login_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Confirm</button></a>
-                                        </td><td> <a onclick="return confirm('Do u want to delete?')" href="sellerdelete.jsp?id=<%=rs.getString("seller_id")%>">  <button type="button" class="btn btn-dark btn-icon-text" >
-                                                    Delete
+                                        <td><a href="sellerreject.jsp?id=<%=rs.getString("login_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Reject</button></a>
+
                                                     <i class="mdi mdi-delete"></i>       </a>                   
                                             </button></td>
 

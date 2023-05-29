@@ -1,11 +1,10 @@
-<jsp:include page="adminindex.jsp"/>
 <%@page import="java.sql.*"%>
 <%@page import="craftpackage.JavaClass"%>
 <% int slno = 0;%>  
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Table 03</title>
+  	<title>subcategory</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -17,19 +16,20 @@
 
 	</head>
 	<body>
+            
 	<section class="ftco-section">
+            
 		<div class="container">
-			
 			<div class="row">
 				<div class="col-md-12">
-					<h4 class="text-center mb-4">Category View</h4>
+					<h4 class="text-center mb-4">Subcategory View</h4>
 					<div class="table-wrap">
 						<table class="table">
 					    <thead class="thead-primary">
 					      <tr>
 					        <th>SL. NO</th>	
-					        <th>Category Name</th>
-					        <th>Category Image</th>
+					        <th>Subcategory Name</th>
+					        <th>Subcategory Image</th>
 					        <th>Edit</th>
 					        <th>Delete</th>
 
@@ -40,16 +40,22 @@
                         try {
                             Connection con = JavaClass.getCon();
                             Statement st = con.createStatement();
-                            String Query = "select * from category";
-                            ResultSet rs = st.executeQuery(Query);
-                            while (rs.next()) {
+                           String catid=request.getParameter("id");
+// out.print(catid);
+ String Query="select * from subcategory where category_id='"+catid+"'";
+// String Query1="select * from subcategory where category_id='1'";
+//  out.println(Query);
+ ResultSet rs=st.executeQuery(Query);
+ // out.println("hello1");
+
+ while(rs.next()){
                     %>
                     <tr>
                         <td><%=++slno%></td>
-                         <td><%=rs.getString("category_name")%></td>
-                        <td><img src='../admin/assets/img/<%=rs.getString("category_image")%>'width="100" height="100"></td>
-                       <td><a href="editcategory.jsp?id=<%=rs.getString("category_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
-                       </td><td> <a onclick="return confirm('Do u want to delete?')" href="categorydelete.jsp?id=<%=rs.getString("category_id")%>">  <button type="button" class="btn btn-dark btn-icon-text" >
+                         <td><%=rs.getString("subcategory_name")%></td>
+                        <td><img src='../admin/assets/img/<%=rs.getString("subcategory_image")%>'width="100" height="100"></td>
+                       <td><a href="editsubcategory.jsp?id=<%=rs.getString("subcategory_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>
+                       </td><td> <a onclick="return confirm('Do u want to delete?')" href="subcategorydelete.jsp?id=<%=rs.getString("subcategory_id")%>">  <button type="button" class="btn btn-dark btn-icon-text" >
                                                     Delete
                                                     <i class="mdi mdi-delete"></i>       </a>                   
                                             </button></td>
@@ -62,11 +68,11 @@
 
                 </tr>
                 <%
-                        }
-                    } catch (Exception e) {
-                        out.println("exception");
-                    }
-                %> 
+ }
+ } catch (Exception e) {
+ }
+
+%>
 
 					    </tbody>
 					  </table>
@@ -79,8 +85,11 @@
 	<script src="table/js/jquery.min.js"></script>
   <script src="table/js/popper.js"></script>
   <script src="table/js/bootstrap.min.js"></script>
-  <script src="table/js/main.js"></script>
 
 	</body>
 </html>
+
+
+
+
 

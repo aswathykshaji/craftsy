@@ -1,4 +1,4 @@
-<jsp:include page="../guest/guestheader.jsp" />
+<%--<jsp:include page="../guest/guestheader.jsp" />--%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -73,4 +73,4 @@
     <script src="js/main.js"></script>
   </body>
 </html>
-<jsp:include page="../guest/guestfooter.jsp" />
+<%--<jsp:include page="../guest/guestfooter.jsp" />--%>

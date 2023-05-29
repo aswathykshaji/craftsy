@@ -169,9 +169,9 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Hot Deals</a></li>
-						<li><a href="#">Categories</a></li>
+						<li class="active"><a href="guesthome.jsp">Home</a></li>
+						<li><a href="buyerregister.jsp">Customer Registration</a></li>
+						<li><a href="sellerreg.jsp">Seller Registration</a></li>
 						<li><a href="#">Laptops</a></li>
                                               	<li><a href="../login/loginindex.jsp">Login</a></li>
                                                 <li><a href="#">Smartphones</a></li>

@@ -44,7 +44,7 @@
                         <div class="form-wrapper">
                             <label for="">District</label>
                             <div class="form-holder select">
-                                <select name="district_id" id="" class="form-control">
+                                <select name="district_id" id="district_id" onchange="displayloc()" class="form-control">
                                     <option value="united states">--select--</option>
                                     <!--									<option value="united kingdom"></option>
                                                                                                             <option value="viet nam"></option>-->
@@ -70,26 +70,10 @@
                         </div>
                         <div class="form-wrapper">
                             <label for="">Location</label>
-                            <div class="form-holder select">
-                                <select name="location_id" id="" class="form-control">
+                            <div class="form-holder select" id="loc">
+                                <select name="location_id" id="location_id" class="form-control">
                                     <option value="united states">--select--</option>
-                                    <!--									<option value="united kingdom"></option>
-                                                                                                            <option value="viet nam"></option>-->
-                                    <%
-                                        try {
-                                            Connection con = JavaClass.getCon();
-                                            Statement st = con.createStatement();
-                                            String Query = "select * from location";
-                                            ResultSet rs = st.executeQuery(Query);
-                                            while (rs.next()) {
-                                    %>
-                                    <option value="<%=rs.getString("location_id")%>"><%=rs.getString("location_name")%></option>
-                                    <%
-                                            }
-                                        } catch (Exception e) {
-
-                                        }
-                                    %>
+                                    
                                 </select>
                                 <i class="zmdi zmdi-pin"></i>
                             </div>
@@ -135,4 +119,20 @@
 
 </body>
 </html>
+<div id="loc"></div>
+<script>
+    function displayloc()
+    {
+        var val=document.getElementById('district_id').value;
+        $.ajax({
+            type: "POST",
+            url: "getlocation.jsp",
+            data: "id=" + val,
+            success: function(data2)
+            {
+                $("#loc").html(data2);
+            }
+        })
+    }
+</script>
 <jsp:include page="guestfooter.jsp"/>

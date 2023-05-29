@@ -40,15 +40,14 @@
 					
 					
 					<div class="form-end">
-<!--						
--->						<div class="button-holder" >
+						<div class="button-holder" >
 							<button class="button">Register Now</button>
 						</div>
 						
 					</div>
 				</form>
 			</div>
-		</div><!--
+		</div>
 		
-	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+	</body>
 </html>

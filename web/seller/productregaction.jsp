@@ -82,7 +82,8 @@
 
             try {
                 String category = details.get(0);
-                                String subcategory_name = details.get(1);
+                String subcategory = details.get(1);
+                String name = details.get(2);
 
                 String file_name=fileset.get(0);
 
@@ -92,7 +93,7 @@
                Connection con=JavaClass.getCon();
             Statement st=con.createStatement();
 
-                String s = "insert into subcategory(category_id,subcategory_name,subcategory_image) values('" + category + "','" + subcategory_name + "','" + file_name + "')";
+                String s = "insert into product(category,subcategory,product_name,product_image) values('" + category + "','" + subcategory + "','" + name + "','" + file_name + "')";
 
 //                out.println(s);
                 st.executeUpdate(s);
@@ -106,7 +107,7 @@
 %>
 <script>
     alert("Sub-Category Successfully");
-    window.location = "subcategoryregister.jsp";
+    window.location = "productreg.jsp";
 </script>
 <%
             out.println("</body>");
