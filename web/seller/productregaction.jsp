@@ -81,33 +81,84 @@
             }
 
             try {
+                
+                out.println("hiiii");
                 String category = details.get(0);
                 String subcategory = details.get(1);
                 String name = details.get(2);
+                String description = details.get(3);
+                String quantity = details.get(4);
+                String price = details.get(5);
+                String  product_id = details.get(6);
 
-                String file_name=fileset.get(0);
+                String file_name = fileset.get(0);
+                out.println(file_name);
 
 //                String category_image= fileset.get(0);
+                Connection con = JavaClass.getCon();
+                Statement st = con.createStatement();
                 
-
-               Connection con=JavaClass.getCon();
-            Statement st=con.createStatement();
-
-                String s = "insert into product(category,subcategory,product_name,product_image) values('" + category + "','" + subcategory + "','" + name + "','" + file_name + "')";
-
+//                out.println("hiiii");
+            String sql3="select max(product_id) as 'pid' from stock";
+            ResultSet rs1=st.executeQuery(sql3);
+            if (rs1.next()){
+                String pid=rs1.getString("pid");
+                String lid = (String) session.getAttribute("login_id");
+                out.println(lid);
+                String s = "insert into product(category_id,subcategory_id,product_name,product_image1,description,quantity,price,seller_id) values('" + category + "','" + subcategory + "','" + name + "','" + file_name + "','" + description + "','" + price + "','" + lid + "')";
 //                out.println(s);
-                st.executeUpdate(s);
-                st.close();
-                con.close();
-                out.println("closed");
-                // response.sendRedirect("vehsubreg.jsp");
-            } catch (Exception e) {
-                out.println(e);
+             st.executeUpdate(s);
+                  
+            }
+            
+
+    String sql="select max(product_id) as 'pid' from stock";
+            ResultSet rs=st.executeQuery(sql);
+            if (rs1.next()){
+                String pid=rs.getString("pid");
+              
+               String query5="SELECT * FROM stock where product_id='"+pid+"'";
+               out.println(pid);
+               
+                 ResultSet rs2=st.executeQuery(query5);
+             out.println(query5);
+             if(rs2.next())
+                {
+                  
+                 
+               String stock1=rs2.getString("stock");
+//                 out.println(stock);
+               int st3=Integer.parseInt(stock1);
+               int quan=Integer.parseInt(quantity);
+              
+               st3=st3+quan;
+//                stock='"+stock+"' + '"+quantity+"';
+
+                //out.println(stock);
+                String query6= "UPDATE stock SET stock='"+st3+"' WHERE product_id='"+pid+"'";                  
+           out.println(query6);
+                st.executeUpdate(query6);
+                }
+             else
+             {
+                String query7= "insert into stock(stock,product_id)values('"+quantity+"','"+pid+"')"; 
+                out.println(query7);
+                st.executeUpdate(query7);
+             }  
+                
+            }
+               
+        st.close();
+        con.close();
+        out.println("closed");
+        // response.sendRedirect("vehsubreg.jsp");
+    }catch (Exception e) {
+            out.println(e);
             }
 %>
 <script>
-    alert("Sub-Category Successfully");
-    window.location = "productreg.jsp";
+//    alert("Product Added Successfully");
+//    window.location = "productreg.jsp";
 </script>
 <%
             out.println("</body>");
@@ -115,7 +166,7 @@
         } catch (Exception ex) {
             System.out.println(ex);
         }
-    } else {
+    }else {
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Servlet upload</title>");

@@ -91,10 +91,9 @@
 							<ul class="navbar_menu">
 								<li><a href="sellerhome.jsp">home</a></li>
 								<li><a href="productreg.jsp">Product Register</a></li>
-								<li><a href="#">promotion</a></li>
-								<li><a href="#">pages</a></li>
-								<li><a href="#">blog</a></li>
-								<li><a href="contact.html">contact</a></li>
+								<li><a href="#">View Orders</a></li>
+								<li><a href="#">View Payment</a></li>
+								<li><a href="../guest/guesthome.jsp">Logout</a></li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>

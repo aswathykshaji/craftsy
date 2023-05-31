@@ -14,7 +14,7 @@ String district_id = request.getParameter("district_id");
 String location_id = request.getParameter("location_id");
 String password = request.getParameter("password");
  
- String sql1="insert into login(username,password,role,status)values('" + email + "','" + password + "','seller',' notconfirmed')";
+ String sql1="insert into login(username,password,role,status)values('" + email + "','" + password + "','seller','notconfirmed')";
  out.println(sql1);
  st.executeUpdate(sql1);
  out.println(sql1);
@@ -26,6 +26,7 @@ String password = request.getParameter("password");
  if(rs1.next())
  {
  String lid=rs1.getString("lid");
+ out.println("lid");
  String sql4 = "insert into sellerreg(seller_name,gender,phone,district,location,login_id)values('" + name + "','" + gender + "','" + phone + "','" + district_id + "','" + location_id + "',"+lid+")";
  st.executeUpdate(sql4);
  
