@@ -15,7 +15,12 @@
         String district_id=request.getParameter("district_id");
         String location_name=request.getParameter("location_name");
         st.executeUpdate("insert into location (location_name,district_id) values('"+location_name+"','"+district_id+"')");
-        String redirectURL="locationregister.jsp";
+       %>
+       <script>
+    alert("Location added Successfully");
+    window.location = "locationregister.jsp";
+</script>
+<%
     }
     catch(Exception e){
         e.printStackTrace();

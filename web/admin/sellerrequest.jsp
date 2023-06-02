@@ -19,10 +19,10 @@
     <body>
         <section class="ftco-section">
             <div class="container">
-                <a href="sellerrequest.jsp">   <button class="button" style="background-color: #6807f9;color: whitesmoke; ">Request</button></a>
+
                 <div class="row">
                     <div class="col-md-12">
-                        <h4 class="text-center mb-4">Seller View</h4>
+                        <h4 class="text-center mb-4">Seller Request</h4>
                         <div class="table-wrap">
                             <table class="table">
                                 <thead class="thead-primary">
@@ -35,7 +35,8 @@
                                         <th>Location</th>
                                         <th>Username</th>
 
-                                     
+                                        <th>Confirm</th>
+                                        <th>Delete</th>
 
                                     </tr>
                                 </thead>
@@ -44,7 +45,7 @@
                                         try {
                                             Connection con = JavaClass.getCon();
                                             Statement st = con.createStatement();
-                                            String Query = "SELECT * FROM sellerreg s inner join login l on s.login_id=l.login_id INNER join district d on s.district=d.district_id INNER JOIN location loc on loc.location_id=s.location where l.status='confirmed'";
+                                            String Query = "SELECT * FROM sellerreg s inner join login l on s.login_id=l.login_id INNER join district d on s.district=d.district_id INNER JOIN location loc on loc.location_id=s.location where status='notconfirmed'";
                                             ResultSet rs = st.executeQuery(Query);
                                             while (rs.next()) {
                                     %>
@@ -56,13 +57,11 @@
                                         <td><%=rs.getString("district_name")%></td>
                                         <td><%=rs.getString("location_name")%></td>
                                         <td><%=rs.getString("username")%></td>
-                                        
-                                                        
+                                        <td><a href="selleraccept.jsp?id=<%=rs.getString("login_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Confirm</button></a>
+                                        <td><a href="sellerreject.jsp?id=<%=rs.getString("login_id")%>"><button type="button" class="btn btn-dark btn-icon-text">Reject</button></a>
+
+                                                    <i class="mdi mdi-delete"></i>       </a>                   
                                             </button></td>
-
-
-                                        <!--<button type="button" class="btn btn-dark btn-icon-text">Edit</button></a>-->
-                                        <!--<button type="button" class="btn btn-dark btn-icon-text">Delete</button></a>-->
 
 
 

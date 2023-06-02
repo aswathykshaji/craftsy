@@ -5,7 +5,6 @@
 <%@page import="java.sql.Connection"%>
 <jsp:include page="adminindex.jsp"></jsp:include>
 
-
     <!--main content start-->
 
 
@@ -14,13 +13,15 @@
         <section class="wrapper">
             <div class="table-agile-info">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading" style="padding-left:10%">
+                          <br>
                         SUB CATEGORY DETAILS
                     </div>
                     <form role="form" action="" method="post"  >
                         <div class="row w3-res-tb">
                             <div class="col-sm-5 m-b-xs">
-
+<div class="row" style="padding-left: 25%" >
+    <div class="col-md-4">
 
                             <%
                                 try {
@@ -29,27 +30,30 @@
                                     Statement st = con.createStatement();
 
                                     String catid = request.getParameter("category_id");
-                                    out.print(catid);
+//                                    out.print(catid);
                                     String Query = "select * from category";
                                     ResultSet rs = st.executeQuery(Query);
 //out.println("hello1");
                             %>
-                            <select class="input-sm form-control w-sm inline v-middle" id="category_id" name="category_id"  onchange="displaySubcat()" >
-                                <option value="0">...SELECT....</option>
-                                <%
-                                    while (rs.next()) {
-                                %>
-                                <option value="<%=rs.getString("category_id")%>"> <%=rs.getString("category_name")%>  </option>
-                                <%
-                                        }
-                                    } catch (Exception e) {
-                                        //out.println("error");
-                                    }
+                            <br>
+                           <label>Category</label>
+        <select class="dropdown" id="category_id" name="category_id" style="border:1px solid black" onchange="displaySubcat()" >
+            <option value="0">...SELECT....</option>
+            <%
+                while (rs.next()) {
+            %>
+            <option value="<%=rs.getString("category_id")%>"> <%=rs.getString("category_name")%>  </option>
+            <%
+                    }
+                } catch (Exception e) {
+                    //out.println("error");
+                }
 
-                                %> 
-                            </select>
+            %> 
+        </select>
 
-
+    </div>
+</div>
                             </form>
                             </tbody>
                             </table>

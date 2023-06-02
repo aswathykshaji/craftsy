@@ -14,14 +14,14 @@ String email = request.getParameter("email");
 String phone = request.getParameter("phone");
 String password = request.getParameter("password");
  
- String sql1="insert into login(username,password,role,status)values('" + email + "','" + password + "','customer','notconfirmed')";
+ String sql1="insert into login(username,password,role,status)values('" + email + "','" + password + "','customer','confirmed')";
  out.println(sql1);
  st.executeUpdate(sql1);
  out.println(sql1);
  //get login id
  
  String sql3="select max(login_id) as 'lid' from login";
- out.println(sql3);
+// out.println(sql3);
  ResultSet rs1 = st.executeQuery(sql3);
  if(rs1.next())
  {
@@ -29,7 +29,8 @@ String password = request.getParameter("password");
  String sql4 = "insert into customerreg(customer_name,address,district_id,location,phone,login_id)values('" + name + "','" + address + "','" + district + "','" + location + "','" + phone + "',"+lid+")";
  st.executeUpdate(sql4);
  
- response.sendRedirect("../login.jsp");
+ response.sendRedirect("../login/loginindex.jsp");
+
  }
  
  } catch (Exception e) {
