@@ -71,7 +71,7 @@
                     </div>
                     <div class="shop-body">
                         <h3><%=rs.getString("product_name")%></h3>
-                        <a href="viewmoreproduct.jsp?id=<%=rs.getString("product_id")%>" class="cta-btn">View More <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="buynow.jsp?id=<%=rs.getString("product_id")%>" class="cta-btn">View More <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
 
                 </div>

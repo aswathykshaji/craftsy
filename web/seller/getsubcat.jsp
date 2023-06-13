@@ -8,9 +8,9 @@
         String Query = "select * from subcategory where category_id='" + catid + "'";
         ResultSet rs = st.executeQuery(Query);
 %>
-<label>Subcategory</label>
+<!--<label>Subcategory</label>-->
 <select name="subcategory" id="subcategory_id" class="form-control">
-    <option value="subcategory">--select--</option>
+    <option value="subcategory">select subcategory</option>
     <%
         while (rs.next()) {
     %>

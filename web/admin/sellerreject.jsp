@@ -10,7 +10,13 @@
  String id = request.getParameter("id");
         
          st.executeUpdate("update login set status='rejected' where login_id='"+id+"'");
-        out.println("Updated Successfully");
+          %>
+         <script>
+        alert("Updated Successfully");
+                       window.location = "sellerview.jsp";
+
+</script>
+<%
  
     } catch (Exception e) {
         e.printStackTrace();
