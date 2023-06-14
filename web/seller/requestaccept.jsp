@@ -11,7 +11,7 @@
          st.executeUpdate("update request set status='accepted' where request_id='"+id+"'");
          %>
          <script>
-        alert("Updated Successfully");
+        alert("Accepted Successfully");
                        window.location = "requestview.jsp";
 
 </script>

@@ -21,92 +21,61 @@
     </head>
 
     <body>
-        <%
-            try {
-                String id = request.getParameter("id");
-                int num = Integer.parseInt(id);
-                Connection con = JavaClass.getCon();
-                Statement st = con.createStatement();
-                String sql = ("Select * from subcategory where subcategory_id='" + num + "'");
-                ResultSet rs = st.executeQuery(sql);
-                if (rs.next()) {
-
-        %>
+       
         <div class="wrapper" style="background-image: url('registration/images/image1.jpg');">
             <div class="inner">
 
-                <form action="editsubcategoryaction.jsp"method="post" >
+                <form action="editsubcategoryaction.jsp" method="post">
 
+                    <h3>Category Registration</h3>
 
-
-                    <h3>Category Registration </h3>
+                    <%
+                    try {
+                        String id = request.getParameter("id");
+                        int num = Integer.parseInt(id);
+                        Connection con = JavaClass.getCon();
+                        Statement st = con.createStatement();
+                        String sql = "SELECT * FROM subcategory s INNER JOIN category c ON s.category_id = c.category_id WHERE subcategory_id='" + num + "'";
+                        ResultSet rs = st.executeQuery(sql);
+                        if (rs.next()) {
+                            String categoryId = rs.getString("category_id");
+                            String categoryName = rs.getString("category_name");
+                            String subcategoryName = rs.getString("subcategory_name");
+                    %>
+                    
                     <div class="form-group">
                         <div class="form-wrapper">
-                            <label for="">Category: </label>
-                            <div class="form-holder select">
+                            <label for="category_id">Category:</label>
+                            <div class="form-holder select"> 
                                 <select name="category" id="category_id" class="form-control">
-                                    <option disabled value=""><%=rs.getString("category_id")%></option>
-                                    <!--									<option value="united kingdom"></option>
-                                                                                                            <option value="viet nam"></option>-->
-                                    <%                                            try {
-
-                                            String Query1 = "select * from category";
-                                            ResultSet rs1 = st.executeQuery(Query1);
-                                            while (rs1.next()) {
-                                    %>
-                                    <option value="<%=rs1.getString("category_id")%>"><%=rs1.getString("category_name")%></option>
-                                    <%
-                                            }
-                                        } catch (Exception e) {
-                                        }
-                                    %>
+                                    <option value="<%=categoryId%>"><%=categoryName%></option>								
                                 </select>
-                               
                             </div>
                         </div>
 
-                        <%
-                            try {
-                                String sql2 = ("Select * from subcategory where subcategory_id='" + num + "'");
-                                ResultSet rs2 = st.executeQuery(sql2);
-                                if (rs2.next()) {
-
-                        %>
                         <div class="form-wrapper">
-
-
-                            <label for="">Subcategory Name: </label>
+                            <label for="subcategory_name">Subcategory Name:</label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control"name="subcategory_name"value="<%=rs2.getString("subcategory_name")%>" c>
+                                <input type="text" class="form-control" name="subcategory_name" value="<%=subcategoryName%>">
                             </div>
                         </div>
-
                     </div>
-
 
                     <div class="form-end">
-                        <div class="button-holder" >
+                        <div class="button-holder">
                             <button class="button">Update</button>
-                            <input type="hidden" name="id" value="<%=rs2.getString("subcategory_id")%>">
+                            <input type="hidden" name="id" value="<%=rs.getString("subcategory_id")%>">
                         </div>
-
                     </div>
-                         <%
-                                            }
-                                        } catch (Exception e) {
-                                            out.println("cat");
-                                        }
-                                    %>
-
+                    
+                    <% } }
+                    catch(Exception e){
+                            
+        }%>
                 </form>
             </div>
         </div>
-        <%
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        %>
+
     </body>
 </html>

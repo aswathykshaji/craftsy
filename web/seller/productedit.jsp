@@ -41,7 +41,7 @@
                         <option value="viet nam"></option>                      
                         <label for="">Category: </label>
                         <div class="form-holder select">
-                            <select name="category" id="category_id" class="form-control" onchange="displaySubcat()">
+                            <select name="category" id="category" class="form-control" onchange="displaySubcat()">
                                 <option disabled selected value=""><%=rs.getString("category_name")%></option>							
                                 <%
                                     try {
@@ -64,7 +64,7 @@
                     <div class="form-wrapper">
                         <label for="">Subcategory: </label>
                         <div class="form-holder select" id="subcat">
-                            <select name="subcategory" id="subcategory_id" class="form-control">
+                            <select name="subcategory" id="subcategory" class="form-control">
 
                                 <%
                                     try {
@@ -97,7 +97,7 @@
                                 ResultSet name = st.executeQuery(productname);
                                 while (name.next()) {
                         %>
-                        <input type="text" placeholder="Product Name" value="<%=name.getString("product_name")%>" name="name" class="form-control">
+                        <input type="text" placeholder="Product Name" value="<%=name.getString("product_name")%>" name="name" id="name"class="form-control">
                         <%
                                 }
                             } catch (Exception e) {
@@ -118,7 +118,7 @@
                                 ResultSet desc = st.executeQuery(productname);
                                 while (desc.next()) {
                         %>
-                        <input type="text" placeholder="Product Description" name="description" class="form-control" value="<%=desc.getString("description")%>">
+                        <input type="text" placeholder="Product Description" name="description" id="description" class="form-control" value="<%=desc.getString("description")%>">
                         <%
                                 }
                             } catch (Exception e) {
@@ -140,7 +140,7 @@
                                 while (stock.next()) {
                         %>
 
-                        <input type="text" placeholder="Product Stock" name="quantity" class="form-control" value="<%=stock.getString("quantity")%>">
+                        <input type="text" placeholder="Product Stock" name="quantity" id="quantity" class="form-control" value="<%=stock.getString("quantity")%>">
                         <%
                                 }
                             } catch (Exception e) {
@@ -149,7 +149,7 @@
                         %> 
                     </div>
                     <div class="form-wrapper">
-                                                                        <label for="">Product Rate: </label>
+                        <label for="">Product Rate: </label>
 
                         <%
                             try {
@@ -159,7 +159,7 @@
                                 if (price.next()) {
 
                         %>
-                        <input type="text" placeholder="Price" name="price" class="form-control"value="<%=price.getString("price")%>">
+                        <input type="text" placeholder="Price" name="price" id="price" class="form-control"value="<%=price.getString("price")%>">
                         <%
                                 }
                             } catch (Exception e) {
@@ -168,8 +168,8 @@
                         %>
                     </div>
 
-                    <button>Update
-                        <i class="zmdi zmdi-arrow-right"></i>
+                    <button><a href="producteditaction.jsp?id=<%=rs.getString("product_id")%>"> Update
+                            <i class="zmdi zmdi-arrow-right"></i></a>
                     </button>
                     <%
                             }

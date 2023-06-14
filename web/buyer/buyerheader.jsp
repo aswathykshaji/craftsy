@@ -170,7 +170,7 @@
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="buyerhome.jsp">Home</a></li>
-                        <li><a href="#">View Order</a></li>
+                        <li><a href="orderview.jsp">View Order</a></li>
                         <li><a href="../guest/guesthome.jsp">Logout</a></li>
                     </ul>
                     <!-- /NAV -->

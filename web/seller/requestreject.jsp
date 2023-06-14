@@ -11,7 +11,7 @@
          st.executeUpdate("update request set status='rejected' where request_id='"+id+"'");
           %>
          <script>
-        alert("Updated Successfully");
+        alert("Rejected Successfully");
                        window.location = "requestview.jsp";
 
 </script>
