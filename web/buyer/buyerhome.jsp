@@ -1,23 +1,16 @@
-<%@page import="java.sql.ResultSet"%>
+`<%@page import="java.sql.ResultSet"%>
 <%@page import="craftpackage.JavaClass"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.Statement"%>
 <jsp:include page="buyerheader.jsp" />
 <br>
 <br>
-
-
-
-
 <div class="row" style="padding-left: 25%">
     <div class="col-md-3">
         <%
             try {
-                //out.println("hello");
                 Connection con = JavaClass.getCon();
                 Statement st = con.createStatement();
-
-                //                                    out.print(catid);
                 String Query = "select * from category";
                 ResultSet rs = st.executeQuery(Query);
    //out.println("hello1");
@@ -61,13 +54,15 @@
                     String subid = request.getParameter("subcategory_id");
                     String Query = "select * from product";
                     ResultSet rs = st.executeQuery(Query);
-                    while (rs.next()) {
-            %>
-            <div class="col-md-4 col-xs-6" >
+                           int Count = 0;
 
-                <div class="shop">           
+                    while (rs.next() && Count < 4) {
+            %>
+            <div class="col-md-3 col-xs-6" >
+
+                <div class="shop">            
                     <div class="shop-img">
-                        <img src='../admin/assets/img/<%=rs.getString("product_image1")%>' width="350" height="350">
+                        <img src='../admin/assets/img/<%=rs.getString("product_image1")%>' width="250" height="250">
                     </div>
                     <div class="shop-body">
                         <h3><%=rs.getString("product_name")%></h3>
@@ -78,7 +73,8 @@
 
             </div>
             <%
-                    }
+                                           Count++;
+ }
                 } catch (Exception e) {
 
                 }
@@ -87,6 +83,72 @@
         <!-- /row -->
     </div>
     <!-- /container -->
+</div>
+        <!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h3 class="title">New Products</h3>
+
+                </div>
+            </div>
+            <!-- /section title -->
+
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="products-tabs">
+                        <!-- tab -->
+                        <div id="tab1" class="tab-pane active">
+                            <div class="products-slick" data-nav="#slick-nav-1">
+                                <%
+                                    try {
+                                        Connection con = JavaClass.getCon();
+                                        Statement st = con.createStatement();
+                                        String Query = "select * from product";
+                                        ResultSet rs = st.executeQuery(Query);
+                                        while (rs.next()) {
+                                %>
+                                <!-- product -->
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src='../admin/assets/img/<%=rs.getString("product_image1")%>' width="250" height="250" alt="">
+                                    </div>
+                                    <div class="product-body">
+                                        <p class="product-category"><h4><%=rs.getString("product_name")%></h4></p>
+
+                                        <h4 class="product-price"><%=rs.getString("price")%><del class="product-old-price">$990.00</del></h4>
+
+
+                                    </div>                        
+                                </div>
+                                <%
+                                        }
+                                    } catch (Exception e) {
+
+                                    }
+                                %>
+                            </div>
+                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                        </div>
+                        <!-- /tab -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products tab & slick -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
 </div>
 <div id="subcat"></div>  
 <script>

@@ -14,7 +14,7 @@ String email = request.getParameter("email");
 String phone = request.getParameter("phone");
 String password = request.getParameter("password");
  
- String sql1="insert into login(username,password,role,status)values('" + email + "','" + password + "','customer','confirmed')";
+ String sql1="insert into login(username,password,role,status)values('" + email + "','" + password + "','customer','notconfirmed')";
  out.println(sql1);
  st.executeUpdate(sql1);
  out.println(sql1);

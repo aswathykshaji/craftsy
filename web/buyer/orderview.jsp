@@ -90,7 +90,7 @@
                         }
                         if (showPaymentButton) { %>
                         <div style="padding-left:47%">
-                            <button class="button2" id="payment" type="submit"><a href="payment.jsp">Payment</a></button>
+                            <button class="button2" id="payment" type="submit"><a href="payment.jsp?id=<%=rs.getString("product_id")%>">Payment</a></button>
                         </div>
                      <%  }}}catch(Exception e){
                                 }%>
