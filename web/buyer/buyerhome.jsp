@@ -51,7 +51,6 @@
             <%                try {
                     Connection con = JavaClass.getCon();
                     Statement st = con.createStatement();
-                    String subid = request.getParameter("subcategory_id");
                     String Query = "select * from product";
                     ResultSet rs = st.executeQuery(Query);
                            int Count = 0;
@@ -106,7 +105,7 @@
                     <div class="products-tabs">
                         <!-- tab -->
                         <div id="tab1" class="tab-pane active">
-                            <div class="products-slick" data-nav="#slick-nav-1">
+                            <div class="products-slick" data-nav="#slick-nav-1" style="height: 50%">
                                 <%
                                     try {
                                         Connection con = JavaClass.getCon();

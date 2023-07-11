@@ -34,7 +34,7 @@
                                         <th>Location</th>
                                         <th>Username</th>
 
-                                     
+
 
                                     </tr>
                                 </thead>
@@ -55,9 +55,9 @@
                                         <td><%=rs.getString("district_name")%></td>
                                         <td><%=rs.getString("location_name")%></td>
                                         <td><%=rs.getString("username")%></td>
-                                        
-                                                        
-                                            </button></td>
+
+
+                                        </button></td>
 
                                     </tr>
                                     <%

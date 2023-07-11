@@ -108,7 +108,7 @@
                                     <li><a href="productreg.jsp">Product Register</a></li>	
                                     <li><a href="productview.jsp">View Products</a></li>
                                     <li><a href="requestview.jsp">View Requests</a></li>
-                                    <li><a href="#">View Payment</a></li>
+                                    <li><a href="orderview.jsp">View Payment</a></li>
                                     <li><a href="../guest/guesthome.jsp">Logout</a></li>
                                 </ul>
                                 <ul class="navbar_user">

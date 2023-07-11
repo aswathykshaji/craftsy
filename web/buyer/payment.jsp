@@ -1,207 +1,316 @@
 <%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
 <%@page import="craftpackage.JavaClass"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-
-
 <jsp:include page="buyerheader.jsp" />
-<style>
 
-    .box-2 {
-        max-width: 450px;
-        padding: 10px 40px;
-    }
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>Craftsypayment</title>
+        <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <style>
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
 
-    .box-2 .box-inner-2 input.form-control {
-        font-size: 12px;
-        font-weight: 600;
-    }
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
 
-    .box-2 .box-inner-2 .inputWithIcon {
-        position: relative;
-    }
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: #888;
+            }
 
-    .box-2 .box-inner-2 .inputWithIcon span {
-        position: absolute;
-        left: 15px;
-        top: 8px;
-    }
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
 
-    .box-2 .box-inner-2 .inputWithcheck {
-        position: relative;
-    }
+            .card {
+                max-width: 1000px;
+                margin: 2vh;
+            }
 
-    .box-2 .box-inner-2 .inputWithcheck span {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: green;
-        font-size: 12px;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        right: 15px;
-        top: 6px;
-    }
+            .card-top {
+                padding: 0.7rem 5rem;
+            }
 
-    .form-control:focus,
-    .form-select:focus {
-        box-shadow: none;
-        outline: none;
-        border: 1px solid #7700ff;
-    }
+            .card-top a {
+                float: left;
+                margin-top: 0.7rem;
+            }
 
-    .border:focus-within {
-        border: 1px solid #7700ff !important;
-    }
+            #logo {
+                font-family: 'Dancing Script';
+                font-weight: bold;
+                font-size: 1.6rem;
+            }
 
-    .box-2 .card-atm .form-control {
-        border: none;
-        box-shadow: none;
-    }
+            .card-body {
+                padding: 0 5rem 5rem 5rem;
+                background-image: url("https://i.imgur.com/4bg1e6u.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
 
-    .form-select {
-        border-radius: 0;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+            @media (max-width: 768px) {
+                .card-body {
+                    padding: 0 1rem 1rem 1rem;
+                    background-image: url("https://i.imgur.com/4bg1e6u.jpg");
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
 
-    }
+                .card-top {
+                    padding: 0.7rem 1rem;
+                }
+            }
 
-    .address .form-control.zip {
-        border-radius: 0;
-        border-bottom-left-radius: 10px;
+            .row {
+                margin: 0;
+            }
 
-    }
+            .upper {
+                padding: 1rem 0;
+                justify-content: space-evenly;
+            }
 
-    .address .form-control.state {
-        border-radius: 0;
-        border-bottom-right-radius: 10px;
+            #three {
+                border-radius: 1rem;
+                width: 22px;
+                height: 22px;
+                margin-right: 3px;
+                border: 1px solid blue;
+                text-align: center;
+                display: inline-block;
+            }
 
-    }
+            #payment {
+                margin: 0;
+                color: blue;
+            }
 
-    .box-2 .box-inner-2 .btn.btn-outline-primary {
-        width: 120px;
-        padding: 10px;
-        font-size: 11px;
-        padding: 0% !important;
-        display: flex;
-        align-items: center;
-        border: none;
-        border-radius: 0;
-        background-color: whitesmoke;
-        color: black;
-        font-weight: 600;
-    }
+            .icons {
+                margin-left: auto;
+            }
 
-    .box-2 .box-inner-2 .btn.btn-primary {
-        background-color: #7700ff;
-        color: whitesmoke;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        font-weight: 600;
-        justify-content: center;
-        border: none;
-        padding: 10px;
-    }
+            form span {
+                color: rgb(179, 179, 179);
+            }
 
-    .box-2 .box-inner-2 .btn.btn-primary:hover {
-        background-color: #7a34ca;
-    }
+            form {
+                padding: 2vh 0;
+            }
 
-    .box-2 .box-inner-2 .btn.btn-primary .fas {
-        font-size: 13px !important;
-        color: whitesmoke;
-    }
+            input {
+                border: 1px solid rgba(0, 0, 0, 0.137);
+                padding: 1vh;
+                margin-bottom: 4vh;
+                outline: none;
+                width: 100%;
+                background-color: rgb(247, 247, 247);
+            }
 
-</style>
-<div class="container d-lg-flex">
+            input:focus::-webkit-input-placeholder {
+                color: transparent;
+            }
 
-    <div class="box-2">
-        <div class="box-inner-2">
-            <div>
-                <p class="fw-bold">Payment Details</p>
-                <p class="dis mb-3">Complete your purchase by providing your payment details</p>
+            .header {
+                font-size: 1.5rem;
+            }
+
+            .left {
+                background-color: #ffffff;
+                padding: 2vh;
+            }
+
+            .left img {
+                width: 2rem;
+            }
+
+            .left .col-4 {
+                padding-left: 0;
+            }
+
+            .right .item {
+                padding: 0.3rem 0;
+            }
+
+            .right {
+                background-color: #ffffff;
+                padding: 2vh;
+            }
+
+            .col-8 {
+                padding: 0 1vh;
+            }
+
+            .lower {
+                line-height: 2;
+            }
+
+            .btn {
+                background-color: rgb(23, 4, 189);
+                border-color: rgb(23, 4, 189);
+                color: white;
+                width: 100%;
+                font-size: 0.7rem;
+                margin: 4vh 0 1.5vh 0;
+                padding: 1.5vh;
+                border-radius: 0;
+            }
+
+            .btn:focus {
+                box-shadow: none;
+                outline: none;
+                box-shadow: none;
+                color: white;
+                -webkit-box-shadow: none;
+                -webkit-user-select: none;
+                transition: none;
+            }
+
+            .btn:hover {
+                color: white;
+            }
+
+            a {
+                color: black;
+            }
+
+            a:hover {
+                color: black;
+                text-decoration: none;
+            }
+
+            input[type=checkbox] {
+                width: unset;
+                margin-bottom: unset;
+            }
+
+            #cvv {
+                background-image: linear-gradient(to left, rgba(255, 255, 255, 0.575), rgba(255, 255, 255, 0.541)),
+                    url("https://img.icons8.com/material-outlined/24/000000/help.png");
+                background-repeat: no-repeat;
+                background-position-x: 95%;
+                background-position-y: center;
+            }
+
+            #cvv:hover {}
+        </style>
+    </head>
+    <body class='snippet-body'>
+
+        <div class="card">
+            <%
+                try {
+                    Connection con = JavaClass.getCon();
+                    Statement st = con.createStatement();
+                    String custid = (String) session.getAttribute("login_id");
+                    String Query = "SELECT * FROM request r INNER JOIN login l on r.customer_id=l.login_id INNER JOIN product p on r.product_id=p.product_id inner join customerreg cr on cr.login_id=l.login_id inner join location loc on loc.location_id=cr.location inner join district d on d.district_id=loc.district_id"
+                            + " where r.customer_id='" + custid + "'";
+                    ResultSet rs = st.executeQuery(Query);
+                    while (rs.next()) {
+            %>
+            <div class="card-top border-bottom text-center">
+                <a href="#"> Back to shop</a>
+                <span id="logo">Craftsy</span>
             </div>
-            <form action="">
-                <%
-                    try {
-                        Connection con = JavaClass.getCon();
-                        Statement st = con.createStatement();
-                        String custid = (String) session.getAttribute("login_id");
-                        String Query = "SELECT * FROM request r INNER JOIN login l on r.customer_id=l.login_id INNER JOIN product p on r.product_id=p.product_id inner join customerreg cr on cr.login_id=l.login_id inner join location loc on loc.location_id=cr.location inner join district d on d.district_id=loc.district_id"
-                                + " where r.customer_id='" + custid + "'";
-                        ResultSet rs = st.executeQuery(Query);
-                        while (rs.next()) {
+            <div class="card-body">
+                <div class="row upper">
+                    <span id="payment"><span id="three"></span>Payment</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="left border">
+                            <div class="row">
+                                <span class="header">Payment</span>
+                                <div class="icons">
+                                    <img src="https://img.icons8.com/color/48/000000/visa.png" />
+                                    <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" />
+                                    <img src="https://img.icons8.com/color/48/000000/maestro.png" />
+                                </div>
+                            </div>
+                            <form action="paymentaction.jsp" method="get">
+                                <span>Cardholder's name:</span>
+                                <input placeholder="">
+                                <span>Card Number:</span>
+                                <input placeholder="0125 6780 4567 9909">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <span>Expiry date:</span>
+                                        <input placeholder="YY/MM">
+                                    </div>
+                                    <div class="col-4">
+                                        <span>CVV:</span>
+                                        <input id="cvv">
+                                    </div>
+                                </div>
+                                <input type="checkbox" id="save_card" class="align-left">
+                                <label for="save_card">Save card details to wallet</label>  
 
-                %>
-                <div class="mb-3">
-                    <p class="dis fw-bold mb-2">Customer Name</p>
-                    <input class="form-control" type="text" value="<%=rs.getString("customer_name")%>">
-                </div>
-                <div class="mb-3">
-                    <p class="dis fw-bold mb-2">Email address</p>
-                    <input class="form-control" type="email" value="<%=rs.getString("username")%>">
-                </div>
-                <div>
-                    <p class="dis fw-bold mb-2">Card details</p>
-                    <div class="d-flex align-items-center justify-content-between card-atm border rounded">
-                        <div class="fab fa-cc-visa ps-3"></div>
-                        <input type="text" class="form-control" placeholder="Card Details">
-                        <div class="d-flex w-50">
-                            <input type="text" class="form-control px-0" placeholder="MM/YY">
-                            <input type="password" maxlength=3 class="form-control px-0" placeholder="CVV">
+                            </form>
                         </div>
                     </div>
-                    <div class="my-3 cardname">
-                        <p class="dis fw-bold mb-2">Cardholder name</p>
-                        <input class="form-control" type="text">
-                    </div>
-                    <div class="address">
-                        <p class="dis fw-bold mb-3">Billing address</p>
-                        <input class="form-control" type="text" value="<%=rs.getString("address")%><br><%=rs.getString("location_name")%><br><%=rs.getString("district_name")%>">
+                    <div class="col-md-5">
 
-                        <div class="d-flex">
-                            <input class="form-control zip" type="text" placeholder="ZIP">
-                            <input class="form-control state" type="text" placeholder="State">
-                        </div>
-                        <div class=" my-3">
-                            <p class="dis fw-bold mb-2">VAT Number</p>
-                            <div class="inputWithcheck">
-                                <input class="form-control" type="text" value="GB012345B9">
-                                <span class="fas fa-check"></span>
+                        <div class="right border">
+                            <div class="header">Order Summary</div>
+                            <p><%=rs.getString("quantity1")%> items</p>
+                            <div class="row item">
+                                <div class="col-4 align-self-center"><img class="img-fluid" src="../admin/assets/img/<%=rs.getString("product_image1")%>"></div>
+                                <div class="col-8">
+                                    <div class="row"><b><%=rs.getString("price")%></b></div>
+                                    <div class="row text-muted"><%=rs.getString("product_name")%></div>
+                                    <div class="row"><%=rs.getString("quantity1")%></div>
+                                </div>
+                            </div>
 
+                            <hr>
+                            <div class="row lower">
+                                <div class="col text-left">Subtotal</div>
+                                <div class="col text-right"><%=rs.getString("total_amount")%></div>
                             </div>
-                        </div>
-                        <div class="d-flex flex-column dis">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <p>Subtotal</p>
-                                <p><span class="fas fa-dollar-sign"></span>33.00</p>
+                            <div class="row lower">
+                                <div class="col text-left">Delivery Charge</div>
+                                <div class="col text-right">Free</div>
                             </div>
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <p>VAT<span>(20%)</span></p>
-                                <p><span class="fas fa-dollar-sign"></span>2.80</p>
+                            <div class="row lower">
+                                <div class="col text-left"><b>Total to pay</b></div>
+                                <div class="col text-right"><b><%=rs.getString("total_amount")%></b></div>
                             </div>
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <p class="fw-bold">Total</p>
-                                <p class="fw-bold"><span class="fas fa-dollar-sign"></span>35.80</p>
-                            </div>
-                            <div class="btn btn-primary mt-2">Pay<span class="fas fa-dollar-sign px-1"></span>35.80
-                            </div>
+                            <input type="hidden" name="seller_id" id="seller_id" value="<%=rs.getString("seller_id")%>">
+                            <input type="hidden" name="totalamount" id="totalamount" value="<%=rs.getString("total_amount")%>">
+                            <button type="submit" class="btn"><a href="paymentaction.jsp?id=<%=rs.getString("request_id")%>">Pay</a></button>
                         </div>
                     </div>
                 </div>
-                <%
-                        }
-                    } catch (Exception e) {
-
-                    }
-                %>
-            </form>
+            </div>
+            <div></div>
         </div>
-    </div>
-</div>
-
-<jsp:include page="buyerfooter.jsp" />
+        <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+        <script type='text/javascript' src='#'></script>
+        <script type='text/javascript' src='#'></script>
+        <script type='text/javascript' src='#'></script>
+        <script type='text/javascript'>#</script>
+        <script type='text/javascript'>
+                    var myLink = document.querySelector('a[href="#"]');
+            myLink.addEventListener('click', function(e) {
+                e.preventDefault();
+            });
+        </script>
+        <%
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
+    </body>
+</html>

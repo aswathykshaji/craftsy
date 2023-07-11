@@ -23,16 +23,16 @@
         int num = Integer.parseInt(id);
 //out.println("hi");
         String sql1 = "update customerreg set customer_name='" + customer_name + "', phone='" + phone + "',address='" + address + "' where login_id='" + logid + "'";
-//out.println("hi");
+out.println(sql1);
         String sql2 = "update login set username='" + email + "'  where login_id='" + logid + "'";
 
-//out.println(sql1);
+out.println(sql2);
         st.executeUpdate(sql1);
         st.executeUpdate(sql2);
 
-        out.println(sql1);
+//        out.println(sql1);
 //out.println("hi");
-        response.sendRedirect("orderview.jsp");
+        response.sendRedirect("buyerprofile.jsp");
     } catch (Exception e) {
         e.printStackTrace(); 
     }
