@@ -18,10 +18,10 @@
 
     <body>
 
-        <div class="wrapper" style="background-image: url('seller/images/bg-registration-form-1.jpg');">
-            <div class="inner">
+        <div class="wrapper" style="background-image: url('seller/images/bg-registration-form-1.jpg'); ">
+            <div class="inner" style="padding-top: 6px;">
                 <div class="image-holder">
-                    <img src="seller/images/registration-form-1.jpg" alt="">
+                    <img src="seller/images/registration-form-1.jpg" alt="" style="max-height:100%">
                 </div>
                 <form action="sellerregaction.jsp"method="post" onsubmit="return validateForm()">
                     <h3>Registration Form</h3>
@@ -41,10 +41,10 @@
                         <select name="gender" id="" class="form-control" required>
                             <option value="" disabled selected>Gender</option>
                             <option value="male">Male</option>
-                            <option value="femal">Female</option>
+                            <option value="female">Female</option>
                             <option value="other">Other</option>
                         </select>
-                        <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+                        <i class="zmdi zmdi-caret-down" style="font-size: 10px"></i>
                     </div>
                     <div class="form-wrapper">
                         <label>Phone</label>
@@ -94,7 +94,7 @@
                         <i class="zmdi zmdi-lock"></i>
                     </div>
 
-                    <button>Register
+                            <button class="btn" style="color:white">Register
                         <i class="zmdi zmdi-arrow-right"></i>
                     </button>
                 </form>

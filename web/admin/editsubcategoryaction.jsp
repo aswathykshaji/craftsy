@@ -21,7 +21,7 @@ String sql1 = "update subcategory set subcategory_name='" + subcategory_name +"'
 st.executeUpdate(sql1);
 out.println(sql1);
 //out.println("hi");
-response.sendRedirect("viewsubcategory.jsp");
+response.sendRedirect("viewsubcategoryajax.jsp");
 }
 catch (Exception e) {
 e.printStackTrace();

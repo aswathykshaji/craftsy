@@ -14,11 +14,11 @@
         <!-- STYLE CSS -->
         <link rel="stylesheet" href="register/css/style.css">
         <style>
-            .button{background-color: #A70D2A;}
+            .button1{background-color: #A70D2A;}
         </style>
     </head>
 
-    <body>
+    <body1>
 
         <div class="wrapper" style="background-image: url('register/images/image1.jpg');">
             <div class="inner">
@@ -73,7 +73,7 @@
                             <div id="loc">
                                 <select name="location_id" id="location_id" class="form-control" required>
                                     <option value="united states">--select--</option>
-                                    
+
                                 </select>
                                 <i class="zmdi zmdi-pin"></i>
                             </div>
@@ -96,38 +96,38 @@
                             </div>
                         </div>
                     </div>
-                                 <div class="form-group">
-                    <div class="form-wrapper">
-                        <label for=""> Password:</label>
-                        <div class="form-holder">
-                            <i class="zmdi zmdi-lock-outline"></i>
-                            <input type="password" class="form-control" placeholder="********" name="password" required>
+                    <div class="form-group">
+                        <div class="form-wrapper">
+                            <label for=""> Password:</label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-lock-outline"></i>
+                                <input type="password" class="form-control" placeholder="********" name="password" required>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="form-end">
+
+                        <div class="button-holder" style="padding-left:150px; color:white; width:69%" >
+                            <button class="button1">Register</button>
+                        </div>
+
+                    </div>
+                </form>
             </div>
-            
-            <div class="form-end">
+        </div>
 
-                <div class="button-holder">
-                    <button class="button">Register</button>
-                </div>
-
-            </div>
-        </form>
-    </div>
-</div>
-
-</body>
+    </body1>
 </html>
 <div id="loc"></div>
 <script>
-     function validateForm() {
+    function validateForm() {
         var name = document.getElementById("name").value;
         var address = document.getElementById("address").value;
         var email = document.getElementById("email").value;
         var phone = document.getElementById("phone").value;
         var password = document.getElementById("password").value;
-          var districtId = document.getElementById("district_id").value;
+        var districtId = document.getElementById("district_id").value;
         var locationId = document.getElementById("location_id").value;
 
 
@@ -155,7 +155,7 @@
             alert("Password must be filled out");
             return false;
         }
-        
+
         if (districtId === "united states") {
             alert("Please select a district");
             return false;
@@ -170,7 +170,7 @@
     }
     function displayloc()
     {
-        var val=document.getElementById('district_id').value;
+        var val = document.getElementById('district_id').value;
         $.ajax({
             type: "POST",
             url: "getlocation.jsp",

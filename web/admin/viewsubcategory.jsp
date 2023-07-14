@@ -11,8 +11,8 @@
  <tr>
  <th>Slno </th>
 <th>Subcategory Name</th>
-<th>Image</th>
- <th>Action</th>
+
+<th>Action</th>
  <!-- <th>Delete</th>-->
  </tr>
  </thead>

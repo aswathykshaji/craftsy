@@ -32,7 +32,7 @@
                                         <th>Phone</th>
                                         <th>District</th>
                                         <th>Location</th>
-                                        <th>Username</th>
+                                        <th>Email</th>
 
 
 

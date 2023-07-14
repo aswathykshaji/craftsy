@@ -42,7 +42,7 @@
             <div id="top-header">
                 <div class="container">
                     <ul class="header-links pull-left">
-                        <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+                        <li><a href="#"><i class="fa fa-phone"></i> +98-76-54-32-10</a></li>
                         <li><a href="#"><i class="fa fa-envelope-o"></i> crafsy@email.com</a></li>
                     </ul>
                     <ul class="header-links pull-right">
@@ -70,19 +70,19 @@
                         <!-- /LOGO -->
 
                         <!-- SEARCH BAR -->
-                        <div class="col-md-6">
-                            <div class="header-search">
+<!--                        <div class="col-md-6">
+                            <div class="header-search1">
                                 <form>
-                                    <select class="input-select">
+                                    <select class="input-select1">
                                         <option value="0">All Categories</option>
                                         <option value="1">Category 01</option>
                                         <option value="1">Category 02</option>
                                     </select>
-                                    <input class="input" placeholder="Search here">
-                                    <button class="search-btn">Search</button>
+                                    <input class="input1" placeholder="Search here">
+                                    <button class="search-btn1">Search</button>
                                 </form>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- /SEARCH BAR -->
 
                         <!-- ACCOUNT -->
@@ -170,4 +170,5 @@
             </div>
             <!-- /container -->
         </nav>
-        <!-- /NAVIGATION -->
+    </body>
+</html>    <!-- /NAVIGATION -->

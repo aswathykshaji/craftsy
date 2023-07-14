@@ -180,7 +180,6 @@
             .btn:hover {
                 color: white;
             }
-
             a {
                 color: black;
             }
@@ -205,6 +204,37 @@
 
             #cvv:hover {}
         </style>
+        <script type="text/javascript">
+            function validateForm() {
+                var cardholderName = document.getElementById("cardholderName").value;
+                var cardNumber = document.getElementById("cardNumber").value;
+                var expiryDate = document.getElementById("expiryDate").value;
+                var cvv = document.getElementById("cvv").value;
+
+                if (cardholderName.trim() === "") {
+                    alert("Please enter Cardholder's name");
+                    return false;
+                }
+
+                if (cardNumber.trim() === "") {
+                    alert("Please enter Card Number");
+                    return false;
+                }
+
+                if (expiryDate.trim() === "") {
+                    alert("Please enter Expiry date");
+                    return false;
+                }
+
+                if (cvv.trim() === "") {
+                    alert("Please enter CVV");
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+
     </head>
     <body class='snippet-body'>
 
@@ -218,6 +248,9 @@
                             + " where r.customer_id='" + custid + "'";
                     ResultSet rs = st.executeQuery(Query);
                     while (rs.next()) {
+                        double totalAmount = Double.parseDouble(rs.getString("total_amount"));
+                        int twoPercent = (int) Math.round(0.02 * totalAmount);
+                        int Amount = (int) Math.round(totalAmount - twoPercent);
             %>
             <div class="card-top border-bottom text-center">
                 <a href="#"> Back to shop</a>
@@ -238,15 +271,15 @@
                                     <img src="https://img.icons8.com/color/48/000000/maestro.png" />
                                 </div>
                             </div>
-                            <form action="paymentaction.jsp" method="get">
+                            <form action="paymentaction.jsp" method="get"  onsubmit="return validateForm();">
                                 <span>Cardholder's name:</span>
-                                <input placeholder="">
+                                <input placeholder=""id="cardholderName">
                                 <span>Card Number:</span>
-                                <input placeholder="0125 6780 4567 9909">
+                                <input placeholder="0125 6780 4567 9909" id="cardNumber">
                                 <div class="row">
                                     <div class="col-4">
                                         <span>Expiry date:</span>
-                                        <input placeholder="YY/MM">
+                                        <input placeholder="YY/MM" id="expiryDate">
                                     </div>
                                     <div class="col-4">
                                         <span>CVV:</span>
@@ -282,13 +315,14 @@
                                 <div class="col text-left">Delivery Charge</div>
                                 <div class="col text-right">Free</div>
                             </div>
+                            <input type="hidden" id="twoPercent" value="<%= twoPercent%>">
+                            <input type="hidden" id="Amount" value="<%= Amount %>">
                             <div class="row lower">
                                 <div class="col text-left"><b>Total to pay</b></div>
                                 <div class="col text-right"><b><%=rs.getString("total_amount")%></b></div>
                             </div>
-                            <input type="hidden" name="seller_id" id="seller_id" value="<%=rs.getString("seller_id")%>">
-                            <input type="hidden" name="totalamount" id="totalamount" value="<%=rs.getString("total_amount")%>">
-                            <button type="submit" class="btn"><a href="paymentaction.jsp?id=<%=rs.getString("request_id")%>">Pay</a></button>
+
+                            <button type="submit"  class="btn"><a href="paymentaction.jsp?id=<%=rs.getString("request_id")%>&total_amount=<%=rs.getString("total_amount")%>&seller_id=<%=rs.getString("seller_id")%>&Amount=<%=Amount%>&twoPercent=<%=twoPercent%>"><h3 style="color:white">Pay</h3></a></button>
                         </div>
                     </div>
                 </div>
