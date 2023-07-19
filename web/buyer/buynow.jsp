@@ -37,6 +37,8 @@
                         String sql = ("Select * from login l inner join sellerreg sr on l.login_id=sr.login_id inner join product p inner join category c on p.category_id=c.category_id inner join subcategory s on s.subcategory_id=p.subcategory_id where product_id='" + num + "'");
                         ResultSet rs = st.executeQuery(sql);
                         while (rs.next()) {
+                             double price = Double.parseDouble(rs.getString("price"));
+                                            int offer = (int) Math.round(price + 275);
                 %>
                 <!-- Product main img -->
 
@@ -60,7 +62,7 @@
 
 
                             <input type="hidden" id="price1" value="<%=rs.getString("price")%>" >
-                            <h3 class="product-price" id="price"><p>&#8377;<%=rs.getString("price")%></p> <del class="product-old-price">$990.00</del></h3>
+                            <h3 class="product-price" id="price"><p>&#8377;<%=rs.getString("price")%></p> <del class="product-old-price"><%=offer%></del></h3>
                             <span class="product-available">In Stock</span>
                         </div>
 

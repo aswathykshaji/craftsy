@@ -23,6 +23,24 @@
      <style>
                 .button {background-color: #A70D2A;}
                 </style>
+                 <script>
+    function validateForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username.trim() === "") {
+        alert("Username must be filled out");
+        return false;
+      }
+
+      if (password.trim() === "") {
+        alert("Password must be filled out");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
   </head>
   <body>
   
@@ -39,23 +57,19 @@
               <h3>Login  </h3>
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
-              <form action="loginaction.jsp" method="post">
-                <div class="form-group first">
-                  <label for="username">Username</label>
-                  <input type="text" class="form-control" placeholder="username" id="username" name="username">
-                </div>
-                <div class="form-group last mb-3">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" placeholder="Your Password" id="password" name="password">
-                </div>
-                
-               
-                  
-                  <div >
-                                <input type="submit" value="Login" class="btn btn-block btn-primary">
-
-                  </div>
-              </form>
+              <form id="loginForm" action="loginaction.jsp" method="post">
+              <div class="form-group first">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" placeholder="Username" id="username" name="username" required>
+              </div>
+              <div class="form-group last mb-3">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" placeholder="Your Password" id="password" name="password" required>
+              </div>
+              <div>
+                <button type="button" class="btn btn-block btn-primary" onclick="validateForm()">Login</button>
+              </div>
+            </form>
             </div>
           </div>
         </div>
@@ -73,4 +87,5 @@
     <script src="js/main.js"></script>
   </body>
 </html>
+
 <%--<jsp:include page="../guest/guestfooter.jsp" />--%>

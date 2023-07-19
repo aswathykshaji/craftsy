@@ -13,7 +13,7 @@
             <div class="col">
                 <div class="main_slider_content">
                     <!--<h6>Spring / Summer Collection 2017</h6>-->
-                    <h1>Get up to 30% Off New Arrivals</h1>
+                    <h1>Get Handmade Products Online</h1>
                     <div class="red_button shop_now_button"><a href="productview.jsp">View Product</a></div>
                 </div>
             </div>

@@ -26,7 +26,7 @@
 					<div class="table-wrap">
 						<table class="table">
 					    <thead class="thead-primary">
-					      <tr>
+					      <tr style="background-color: #1c1c1d">
 					        <th>SL. NO</th>	
 					        <th>Category Name</th>
 					        <th>Category Image</th>

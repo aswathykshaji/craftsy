@@ -6,11 +6,11 @@ try {
     Statement st = con.createStatement();
     String logid = (String) session.getAttribute("login_id");
 //    out.println(logid);
-    String customer_name = request.getParameter("customer_name");
-//        out.println(customer_name);
+    String seller_name = request.getParameter("seller_name");
+        out.println(seller_name);
     String phone = request.getParameter("phone");
 //        out.println(phone);
-    String address = request.getParameter("address");
+    String gender = request.getParameter("gender");
 //        out.println(address);
     String district = request.getParameter("district");
 //        out.println(district);
@@ -18,13 +18,11 @@ try {
 //        out.println(area);
     String email = request.getParameter("email");
 //    out.println(email);
-    String sql1 = "UPDATE customerreg SET customer_name='" + customer_name + "', phone='" + phone + "', address='" + address + "', district_id='" + district + "', location='" + area + "' WHERE login_id='" + logid + "'";
+    String sql1 = "UPDATE sellerreg SET seller_name='" + seller_name + "', gender='" + gender + "', phone='" + phone + "', district='" + district + "', location='" + area + "', WHERE login_id='" + logid + "'";
     String sql2 = "UPDATE login SET username='" + email + "' WHERE login_id='" + logid + "'";
-
     st.executeUpdate(sql1);
     st.executeUpdate(sql2);
-
-    response.sendRedirect("buyerprofile.jsp");
+    response.sendRedirect("sellerprofile.jsp");
 } catch (Exception e) {
     e.printStackTrace();
 }

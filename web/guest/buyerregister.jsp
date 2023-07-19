@@ -18,7 +18,7 @@
         </style>
     </head>
 
-    <body1>
+    <body>
 
         <div class="wrapper" style="background-image: url('register/images/image1.jpg');">
             <div class="inner">
@@ -84,7 +84,7 @@
                         <div class="form-wrapper">
                             <label for="">Email:</label>
                             <div class="form-holder">
-                                <i style="font-style: normal; font-size: 15px;">@</i>
+                                <i style="font-style: normal; font-size: 15px;"></i>
                                 <input type="text" class="form-control"name="email" required>
                             </div>
                         </div>
@@ -156,12 +156,12 @@
             return false;
         }
 
-        if (districtId === "united states") {
+        if (districtId.trim() === "") {
             alert("Please select a district");
             return false;
         }
 
-        if (locationId === "united states") {
+        if (locationId.trim() === "") {
             alert("Please select a location");
             return false;
         }

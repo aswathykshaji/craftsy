@@ -26,14 +26,14 @@
                         <div class="table-wrap">
                             <table class="table">
                                 <thead class="thead-primary">
-                                    <tr>
+                                    <tr style="background-color: #1c1c1d">
                                         <th>SL. NO</th>	
                                         <th>Seller Name</th>
                                         <th>Gender</th>
                                         <th>Phone</th>
                                         <th>District</th>
                                         <th>Location</th>
-                                        <th>Username</th>
+                                        <th>Email</th>
 
                                      
 
@@ -52,7 +52,7 @@
                                         <td><%=++slno%></td>
                                         <td><%=rs.getString("seller_name")%></td>
                                         <td><%=rs.getString("gender")%></td>                       
-                                        <td><%=rs.getString("phone")%></td>
+                                        <td><%=rs.getString("phoneno")%></td>
                                         <td><%=rs.getString("district_name")%></td>
                                         <td><%=rs.getString("location_name")%></td>
                                         <td><%=rs.getString("username")%></td>

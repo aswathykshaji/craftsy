@@ -99,11 +99,27 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./pages/notifications.html">
+          <a class="nav-link text-white " href="viewfeedback.jsp">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <!--<i class="material-icons opacity-10">notifications</i>-->
             </div>
             <span class="nav-link-text ms-1">Feedback</span>
+          </a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link text-white " href="viewadminpayment.jsp">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <!--<i class="material-icons opacity-10">notifications</i>-->
+            </div>
+            <span class="nav-link-text ms-1">Payment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="vieworders.jsp">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <!--<i class="material-icons opacity-10">notifications</i>-->
+            </div>
+            <span class="nav-link-text ms-1">Order</span>
           </a>
         </li>
         <li class="nav-item mt-3">

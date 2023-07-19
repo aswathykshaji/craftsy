@@ -6,7 +6,7 @@
 <% int slno = 0;%>
 <style>
     .button2 {
-        background-color: #d10024; /* Green */
+        background-color: #d10024;
         border: none;
         color: white;
         padding: 15px 32px;
@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="view1/css/style.css">
 </head>
 <body>
+    <br>
+<br>
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
@@ -52,6 +54,7 @@
                             <th>Quantity</th>
                             <th>Total Amount</th>
                             <th>Status</th>
+                            <th>Action</th> <!-- Added a new table header for action -->
                         </tr>
                         </thead>
                         <%
@@ -63,7 +66,8 @@
                                 ResultSet rs = st.executeQuery(Query);
                                 while (rs.next()) {
                                     String status = rs.getString("status");
-                                    boolean isAccepted = status.equals("accepted");
+                                    boolean isPaid = status.equals("delivered");
+                                    boolean isAccepted=status.equals("accepted");
                         %>
                         <tbody>
                         <tr>
@@ -74,25 +78,22 @@
                             <td><%=rs.getString("quantity1")%></td>
                             <td><%=rs.getString("total_amount")%></td>
                             <td><%=status%></td>
+                            <td> <!-- Added a new table cell for action -->
+                                <% if (isPaid) { %>
+                                    <a href="rating.jsp?id=<%=rs.getString("product_id")%>" class="button2">Feedback</a>
+                                <% } %>
+                                <% if (isAccepted) { %>
+                                    <a href="payment.jsp?id=<%=rs.getString("product_id")%>" class="button2">Payment</a>
+                                <% } %>
+                            </td>
                         </tr>
                         </tbody>
-                       
                     </table>
-                     <%
-                        boolean showPaymentButton = false;
-                        rs.beforeFirst();
-                        while (rs.next()) {
-                            String status1 = rs.getString("status");
-                            if (status1.equals("accepted")) {
-                                showPaymentButton = true;
-                                break;
-                            }
-                        }
-                        if (showPaymentButton) { %>
-                        <div style="padding-left:47%">
-                            <button class="button2" id="payment" type="submit"><a href="payment.jsp?id=<%=rs.getString("product_id")%>">Payment</a></button>
-                        </div>
-                     <%  }}}catch(Exception e){
+                    
+<!--                        <div style="padding-left:47%">
+                            <button class="button2" id="payment" type="submit"><a href="payment.jsp?id=">Payment</a></button>
+                        </div>-->
+                     <%  }}catch(Exception e){
                                 }%>
                 </div>
             </div>
@@ -106,5 +107,7 @@
 <script src="view1/js/main.js"></script>
 </body>
 </html>
-
+<br>
+<br><br>
+<br>
 <jsp:include page="buyerfooter.jsp" />

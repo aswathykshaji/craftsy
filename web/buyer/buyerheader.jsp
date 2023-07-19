@@ -88,12 +88,12 @@
                         <!-- ACCOUNT -->
                         <div class="col-md-3 clearfix">
                             <div class="header-ctn">
-                             
+
                                 <!-- /Wishlist -->
 
                                 <!-- Cart -->
                                 <div class="dropdown">
-                                   
+
                                     <div class="cart-dropdown">
                                         <div class="cart-list">
                                             <div class="product-widget">
@@ -159,7 +159,8 @@
                     <!-- NAV -->
                     <ul class="main-nav nav navbar-nav">
                         <li class="active"><a href="buyerhome.jsp">Home</a></li>
-                        <li><a href="orderview.jsp">View Order</a></li>
+                        <li><a href="orderview.jsp">View Request</a></li>
+                        <li><a href="vieworders.jsp">My Orders</a></li>
                         <li><a href="../guest/guesthome.jsp">Logout</a></li>
                     </ul>
                     <!-- /NAV -->

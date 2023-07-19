@@ -105,7 +105,7 @@
                     <div class="products-tabs">
                         <!-- tab -->
                         <div id="tab1" class="tab-pane active">
-                            <div class="products-slick" data-nav="#slick-nav-1" style="height: 50%">
+                            <div class="products-slick" data-nav="#slick-nav-1">
                                 <%
                                     try {
                                         Connection con = JavaClass.getCon();
@@ -113,6 +113,9 @@
                                         String Query = "select * from product";
                                         ResultSet rs = st.executeQuery(Query);
                                         while (rs.next()) {
+                                            double price = Double.parseDouble(rs.getString("price"));
+                                            int offer = (int) Math.round(price + 275);
+
                                 %>
                                 <!-- product -->
                                 <div class="product">
@@ -122,7 +125,7 @@
                                     <div class="product-body">
                                         <p class="product-category"><h4><%=rs.getString("product_name")%></h4></p>
 
-                                        <h4 class="product-price"><%=rs.getString("price")%><del class="product-old-price">$990.00</del></h4>
+                                    <h4 class="product-price"><%=rs.getString("price")%><br><del class="product-old-price"><b><%= offer%></b></del></h4>
 
 
                                     </div>                        
